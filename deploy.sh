@@ -1,6 +1,7 @@
 #!/bin/bash
+set -e
 
-cd /root/apps/jobsy-dev || exit
+cd /root/apps/jobsy-dev
 
 echo "Pulling latest code..."
 git pull origin main
