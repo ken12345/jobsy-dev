@@ -1,18 +1,23 @@
 #!/bin/bash
 set -e
 
-cd /root/apps/jobsy-dev
+# Load NVM
+export NVM_DIR="/root/.nvm"
+source "$NVM_DIR/nvm.sh"
 
-NPM="/root/.nvm/versions/node/v24.13.0/bin/npm"
+# Use your Node version
+nvm use 24
+
+cd /root/apps/jobsy-dev
 
 echo "Pulling latest code..."
 git pull origin main
 
 echo "Installing dependencies..."
-$NPM install
+npm install
 
 echo "Building project..."
-$NPM run build
+npm run build
 
 echo "Build complete."
 
