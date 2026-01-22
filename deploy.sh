@@ -3,14 +3,16 @@ set -e
 
 cd /root/apps/jobsy-dev
 
+NPM="/root/.nvm/versions/node/v24.13.0/bin/npm"
+
 echo "Pulling latest code..."
 git pull origin main
 
 echo "Installing dependencies..."
-npm install
+$NPM install
 
 echo "Building project..."
-npm run build
+$NPM run build
 
 echo "Build complete."
 
