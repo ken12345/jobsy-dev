@@ -6,6 +6,9 @@ import Home from './pages/home';
 import Layout from "./components/layout";
 
 function App() {
+
+  const x = ;
+
   return (
     <>
       <Routes>
@@ -13,8 +16,8 @@ function App() {
         <Route path="/admin" element={<Layout />} >
           <Route path="/admin/home" element={<Home />}></Route>
         </Route>
-        
-      </Routes> 
+
+      </Routes>
     </>
   )
 }
