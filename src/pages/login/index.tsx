@@ -22,7 +22,8 @@ const Login = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [authenticated]);
 
-  const submItHandler = (e: event) => {
+   // eslint-disable-next-line
+  const submItHandler = (e: any) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());

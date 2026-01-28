@@ -5,7 +5,7 @@ import type { IUserDeet } from "../../interfaces/UserState.interface";
 
 const Home = () => {
   const deets: IUserDeet | null = useSelector((state: RootState) => state?.user?.userDetails);
-  const [details, setDetails] = useState<IUserDeet>()
+  const [details, setDetails] = useState<IUserDeet | null>()
 
   useEffect(() => {
     setDetails(deets)
