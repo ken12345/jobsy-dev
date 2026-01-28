@@ -13,6 +13,7 @@ export const UserSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    
     // eslint-disable-next-line
     onLogin: (state: IUserState, action: PayloadAction<any>)=> {
       state.username = action.payload.username;
