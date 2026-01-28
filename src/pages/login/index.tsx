@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { onLogin } from '../../reducers/user';
-import InputText from '../../components/input-text';
+import InputText from '../../components/input-text-component';
 import './login.css';
 
 const Login = () => {
@@ -19,9 +19,10 @@ const Login = () => {
     console.log("kensh authenticated", authenticated);
     navigate("/admin/home")
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [authenticated]);
 
-  const submItHandler = (e: any) => {
+  const submItHandler = (e: event) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());

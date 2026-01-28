@@ -1,10 +1,11 @@
 import type { RootState } from "../../store";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import type { IUserDeet } from "../../interfaces/UserState.interface";
 
 const Home = () => {
-  const deets = useSelector((state: RootState) => state?.user?.userDetails);
-  const [details, setDetails] = useState<any>(null)
+  const deets: IUserDeet | null = useSelector((state: RootState) => state?.user?.userDetails);
+  const [details, setDetails] = useState<IUserDeet>()
 
   useEffect(() => {
     setDetails(deets)

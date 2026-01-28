@@ -3,7 +3,7 @@ import Login from "./pages/login";
 import Home from './pages/home';
 // import About from "./pages/about";
 // import User from "./pages/user";
-import Layout from "./components/layout";
+import Layout from "./components/layout-component";
 
 function App() {
   return (
