@@ -1,0 +1,10 @@
+.text-input {
+
+  input {
+    border: 1px solid grey;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}

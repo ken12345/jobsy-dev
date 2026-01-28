@@ -1,0 +1,9 @@
+.main {
+  padding: 16px 25px;
+  
+  .user-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
