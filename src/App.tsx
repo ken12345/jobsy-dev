@@ -6,9 +6,6 @@ import Home from './pages/home';
 import Layout from "./components/layout";
 
 function App() {
-
-  const x = ;
-
   return (
     <>
       <Routes>
