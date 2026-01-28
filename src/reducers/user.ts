@@ -1,15 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import userdata from'../mock/user.json';
+import type { IUserState, IUserDeet , ILoginForm} from "../interfaces/UserState.interface";
 
-export interface UserState {
-  username: string;
-  authenticated: boolean;
-  userDetails: any;
-}
-
-
-const initialState: UserState = {
+const initialState: IUserState = {
   username: "",
   authenticated: false,
   userDetails: null
@@ -19,14 +13,13 @@ export const UserSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    onLogin: (state: UserState, action: PayloadAction<any>)=> {
+    onLogin: (state: IUserState, action: PayloadAction<ILoginForm>)=> {
       state.username = action.payload.username;
       console.log(userdata)
-      const selected = userdata.find((u: any) => u.username === action.payload.username && u.password === action.payload.password);
+      const selected: IUserDeet | undefined = userdata.find((u: IUserDeet) => u.username === action.payload.username && u.password === action.payload.password);
       if(selected) {
         state.authenticated = true;
         state.userDetails = selected;
-        console.log("kensh selected", selected)
       } else {
          state.authenticated = false;
          state.userDetails = null
