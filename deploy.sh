@@ -1,42 +1,42 @@
 #!/bin/bash
 set -e
 
+echo "🚀 Starting deployment..."
+
 # Load NVM
 export NVM_DIR="/root/.nvm"
 source "$NVM_DIR/nvm.sh"
 
-# Force Node version
+# Use Node version
 nvm use 24
 
-# Fix PATH explicitly
-export PATH="$NVM_DIR/versions/node/v24.13.0/bin:$PATH"
+echo "Node: $(node -v)"
+echo "NPM: $(npm -v)"
 
-NODE=$(which node)
-NPM=$(which npm)
+APP_DIR="/root/apps/jobsy-dev"
+DEPLOY_DIR="/var/www/jobsy"
+BRANCH="main"
 
-echo "Node path: $NODE"
-echo "NPM path: $NPM"
+cd "$APP_DIR"
 
-cd /root/apps/jobsy-dev
+echo "🔄 Fetching latest code..."
+git fetch origin
+git reset --hard origin/$BRANCH
 
-echo "Pulling latest code..."
-git pull origin main
+echo "📦 Installing dependencies..."
+npm install
 
-echo "Installing dependencies..."
-$NPM install
+echo "🏗️ Building project..."
+npm run build
 
-echo "Building project..."
-$NPM run build
+echo "🧹 Clearing deploy directory..."
+rm -rf "$DEPLOY_DIR"/*
 
-echo "Build complete."
+echo "📂 Copying new build..."
+cp -r dist/* "$DEPLOY_DIR"/
 
-echo "Clearing /var/www/jobsy..."
-rm -rf /var/www/jobsy/*
+echo "🔐 Fixing permissions..."
+chown -R www-data:www-data "$DEPLOY_DIR"
+chmod -R 755 "$DEPLOY_DIR"
 
-echo "Deploying new build..."
-cp -r dist/* /var/www/jobsy/
-
-chown -R www-data:www-data /var/www/jobsy
-chmod -R 755 /var/www/jobsy
-
-echo "Deployment finished successfully."
+echo "✅ Deployment finished successfully!"
