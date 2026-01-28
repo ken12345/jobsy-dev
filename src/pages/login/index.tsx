@@ -17,7 +17,7 @@ const Login = () => {
   useEffect(() => {
   if (authenticated) {
     console.log("kensh authenticated", authenticated);
-    navigate("/home")
+    navigate("/admin/home")
   }
 }, [authenticated]);
 
@@ -31,13 +31,14 @@ const Login = () => {
     <>
       <div className='login'>
         <div className='form-container'>
+          <div className='logo'>SMART <span><b>M</b></span>E</div>
           <form onSubmit={submItHandler}>
-            <InputText placeHolder='Username' type='text' required={true} name="username" width='40%'></InputText>
-            <InputText placeHolder='Password' type='password' required={true} name="password" width='40%'></InputText>
-            <div><input type='submit' value='Login'/></div>
+            <InputText type='text' required={true} name="username" width='40%' label='Username'></InputText>
+            <InputText type='password' required={true} name="password" width='40%' label='Password'></InputText>
+            <div><input type='submit' value='Login' className='submit'/></div>
           </form>
         </div>
-        <div className='logo'></div>
+        <div className='rhs'></div>
       </div>
     </>
   )

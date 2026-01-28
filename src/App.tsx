@@ -3,15 +3,17 @@ import Login from "./pages/login";
 import Home from './pages/home';
 import About from "./pages/about";
 import User from "./pages/user";
+import Layout from "./components/layout";
 
 function App() {
   return (
     <>
       <Routes>
-         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/user/:id" element={<User />} />
+        <Route index path="/" element={<Login />} />
+        <Route path="/admin" element={<Layout />} >
+          <Route path="/admin/home" element={<Home />}></Route>
+        </Route>
+        
       </Routes> 
     </>
   )

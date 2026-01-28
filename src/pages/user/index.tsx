@@ -1,5 +1,4 @@
 import { useState } from "react";
-import TestComponent from "../../components/test-component";
 import type { IUser } from "../../interfaces/IUser";
 import "./user.css";
 
@@ -18,7 +17,7 @@ const User = () => {
       <br />
       <div className="user-container">
         {users.map((el: IUser, index: number) => 
-          <TestComponent key={index} id={index + 1} name={el?.name} age={el?.age} status={el?.status}></TestComponent>
+            <div><span>{index +1}. </span><span>name: {el.name} </span><span>age: {el.age} </span><span>status: {el.status} </span></div>
         )}
       </div>
       <br />

@@ -1,5 +1,11 @@
 .text-input {
   position: relative;
+  
+  .label {
+    text-align: left;
+    font-size: 14px;
+    line-height: 24px;
+  }
 
   input {
     border: 1px solid grey;

@@ -1,27 +1,55 @@
 .login {
   display: flex;
   flex-direction: row;
-
+  font-family: 'Inter';
   height: 100vh;
 
   .form-container {
     background-color: white;
     flex-basis: 50%;
 
+    .logo {
+      text-align: center;
+      margin-top: 15%;
+      font-size: 40px;
+      color: black;
+      
+      span {
+        font-size: 60px;
+      }
+    }
+
     form {
-      margin-top: 10%;
+      margin-top: 6%;
       position: relative;
       text-align: center;  
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+
+      .submit {
+        border: none;
+        background: cadetblue;
+        padding: 6px 10px;
+        color: white;
+        font-family: 'Inter Bold';
+        border-radius: 6px;
+        font-size: 16px;
+        margin-top: 12px;
+        cursor: pointer;
+      }
+
+      .submit:hover {
+        opacity: 0.75;
+      }
     }
   }
 
   
 
-  .logo {
+  .rhs {
     flex-basis: 50%;
+    background-color: cadetblue;
   }
 }

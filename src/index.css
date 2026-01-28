@@ -5,9 +5,26 @@
 }
 
 
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter_18pt-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter Bold';
+  src: url('./assets/fonts/Inter_18pt-Bold.ttf') format('truetype');
+}
+
+
 body {
   margin: 0;
   background-color: darkgray;
+   font-family: 'Inter', 'Inter Bold', sans-serif;
+   color: gray;
+}
+
+b {
+  font-family: 'Inter Bold';
 }
 
 .card {
