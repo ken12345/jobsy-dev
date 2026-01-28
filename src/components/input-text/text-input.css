@@ -1,7 +1,11 @@
 .text-input {
+  position: relative;
 
   input {
     border: 1px solid grey;
+    padding: 6px  8px;
+    width: 100%;
+    border-radius: 4px;
   }
 
   input:focus {

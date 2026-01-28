@@ -30,11 +30,14 @@ const Login = () => {
   return(
     <>
       <div className='login'>
-        <form onSubmit={submItHandler}>
-          <InputText placeHolder='Username' type='text' required={true} name="username"></InputText>
-          <InputText placeHolder='Password' type='password' required={true} name="password"></InputText>
-          <InputText type='submit' value='Login'></InputText>
-        </form>
+        <div className='form-container'>
+          <form onSubmit={submItHandler}>
+            <InputText placeHolder='Username' type='text' required={true} name="username" width='40%'></InputText>
+            <InputText placeHolder='Password' type='password' required={true} name="password" width='40%'></InputText>
+            <div><input type='submit' value='Login'/></div>
+          </form>
+        </div>
+        <div className='logo'></div>
       </div>
     </>
   )

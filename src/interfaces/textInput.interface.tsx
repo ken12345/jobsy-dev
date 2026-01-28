@@ -4,4 +4,5 @@ export interface ITextInput {
   required? : boolean
   value?: string | number;
   name?: string;
+  width?: string;
 }

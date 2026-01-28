@@ -1,7 +1,27 @@
 .login {
+  display: flex;
+  flex-direction: row;
 
-  form {
-    display: flex;
-    flex-direction: column;
+  height: 100vh;
+
+  .form-container {
+    background-color: white;
+    flex-basis: 50%;
+
+    form {
+      margin-top: 10%;
+      position: relative;
+      text-align: center;  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+  }
+
+  
+
+  .logo {
+    flex-basis: 50%;
   }
 }
