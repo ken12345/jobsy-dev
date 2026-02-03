@@ -5,6 +5,7 @@ import type { IUserState, IUserDeet } from "../interfaces/UserState.interface";
 
 const initialState: IUserState = {
   username: "",
+  userId: null,
   authenticated: false,
   userDetails: null
 }

@@ -18,9 +18,24 @@
 
 body {
   margin: 0;
-  background-color: darkgray;
-   font-family: 'Inter', 'Inter Bold', sans-serif;
-   color: gray;
+  background-color: #F0F0F0;
+  font-family: 'Inter', 'Inter Bold', sans-serif;
+  color: gray;
+
+  input,
+button,
+select,
+textarea {
+  box-sizing: border-box;
+}
+
+/* Ensure they take up the full width of their parent container */
+input,
+button,
+select,
+textarea {
+  width: 100%;
+}
 }
 
 b {

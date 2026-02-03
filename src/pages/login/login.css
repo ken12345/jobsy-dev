@@ -5,7 +5,6 @@
   height: 100vh;
 
   .form-container {
-    background-color: white;
     flex-basis: 50%;
 
     .logo {
@@ -13,36 +12,96 @@
       margin-top: 15%;
       font-size: 40px;
       color: black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
       
-      span {
+      .bitezy {
         font-size: 60px;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 10px;
+        font-family: "Inter Bold";
+      }
+
+      .bitezy-logo {
+          img {
+            height: 120px;
+          }
       }
     }
 
-    form {
-      margin-top: 6%;
-      position: relative;
-      text-align: center;  
+    .f-holder {
+      margin-top: 4%;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
+      justify-content: center; /* Centers horizontally */         
 
-      .submit {
-        border: none;
-        background: cadetblue;
-        padding: 6px 10px;
-        color: white;
-        font-family: 'Inter Bold';
-        border-radius: 6px;
-        font-size: 16px;
-        margin-top: 12px;
-        cursor: pointer;
+      form {
+        position: relative;
+        width: 50%;
+        
+        .text-input {
+          margin-bottom: 12px;
+          position: relative;
+
+          .label {
+            text-align: left;
+            font-size: 14px;
+            line-height: 24px;
+          }
+
+          input {
+            border: 1px solid grey;
+            padding: 10px  8px;
+            width: 100%;
+            border-radius: 4px;
+            color: #9C9C9C;
+          }
+
+          input:focus {
+            outline: none;
+          }
+        }
+
+        .submit-container {
+          margin-bottom: 12px;
+
+          .submit {
+            border: none;
+            background: #029CDD;
+            padding: 10px;
+            color: white;
+            font-family: 'Inter Bold';
+            border-radius: 6px;
+            font-size: 16px;
+            margin-top: 12px;
+            cursor: pointer;
+            width: 100%;
+          }
+
+          .submit:hover {
+            opacity: 0.75;
+          }
+
+        }
       }
 
-      .submit:hover {
-        opacity: 0.75;
+      .forgot-password {
+        font-family: "inter";
+        
+        span {
+          color: #029CDD;
+          margin-left: 2px;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        span:hover {
+          opacity: 0.8;
+        }
+
       }
+
     }
   }
 
@@ -50,6 +109,9 @@
 
   .rhs {
     flex-basis: 50%;
-    background-color: cadetblue;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

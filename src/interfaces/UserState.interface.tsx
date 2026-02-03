@@ -2,6 +2,7 @@ export interface IUserState {
   username: string;
   authenticated: boolean;
   userDetails: IUserDeet | null;
+  userId: number | null;
 }
 
 export interface IUserDeet {
