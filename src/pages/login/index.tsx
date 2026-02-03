@@ -31,7 +31,7 @@ const Login = () => {
 
   const submItHandler = async(e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const reseult = await fetch("https://api.bitezy.onlineq/api/users/authenticate",
+    const reseult = await fetch("https://api.bitezy.online/api/users/authenticate",
       {method: "POST", headers: {'Content-Type': "application/json"}, body: JSON.stringify({username, password})}
     ).then(
        // eslint-disable-next-line
