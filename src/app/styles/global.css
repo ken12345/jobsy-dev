@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url("@assets/fonts/Inter_18pt-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter-Medium";
+    src: url("@assets/fonts/Inter_18pt-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter-Bold";
+    src: url("@assets/fonts/Inter_18pt-Bold.ttf") format("truetype");
+}
+
+:root {
+    --primary-color: #023A90;
+    --secondary-color: #0281C8;
+    --tertiary-color: #C9E8FF;
+}
+
+* {
+    font-family: "Inter-Regular";
+}
