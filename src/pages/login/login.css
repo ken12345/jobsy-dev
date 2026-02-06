@@ -104,6 +104,22 @@
       }
 
     }
+
+    .error-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+      animation: anim 1s ease-out;
+      
+      div {
+        width: max-content;
+        background-color: rgba(255, 0, 0, 0.05);
+        padding: 6px 12px;
+        color: red;
+        border: 1px solid red;
+        border-radius: 6px;
+      }
+    }
   }
 
   
@@ -115,4 +131,9 @@
     align-items: center;
     justify-content: center;
   }
+
+ 
+}
+ @keyframes anim {
+  from {opacity: 0;}
 }

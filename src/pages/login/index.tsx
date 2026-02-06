@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import type { FormEvent } from 'react';
 // import { useDispatch } from "react-redux";
-import type { RootState } from "../../store";
-import { useSelector } from "react-redux";
+// import type { RootState } from "../../store";
+// import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 // import { onLogin } from '../../reducers/user';
@@ -20,31 +20,33 @@ const apiURL = import.meta.env.VITE_API_URL;
 
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   // const dispatch = useDispatch();
-  const authenticated = useSelector((state: RootState) => state.user.authenticated);
+  // const authenticated = useSelector((state: RootState) => state.user.authenticated);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (authenticated) {
-      console.log("kensh authenticated", authenticated);
+    if (isAuthenticated) {
+      console.log("kensh authenticated", isAuthenticated);
       navigate("/admin/home")
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authenticated]);
+  }, [isAuthenticated]);
 
   const submItHandler = async(e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const reseult = await fetch(`${apiURL}users/authenticate`,
-      {method: "POST", headers: {'Content-Type': "application/json", "x-api-key": apiKey}, body: JSON.stringify({username, password})}
-    ).then(
+    try {
+      const reseult = await fetch(`${apiURL}users/authenticate`,
+      {method: "POST", headers: {'Content-Type': "application/json", "x-api-key": apiKey}, body: JSON.stringify({username, password})}).then(
        // eslint-disable-next-line
       (res) => {
         return res.json()
       });
-    console.log("kensh res",reseult)
-    if(reseult) {
-      navigate("/admin/home")
+      setIsAuthenticated(reseult ? true : false);
+    } catch (error) {
+      setIsAuthenticated(false);
+      console.log(error)
     }
     // dispatch(onLogin({username, password}));
   }
@@ -70,16 +72,19 @@ const apiURL = import.meta.env.VITE_API_URL;
             <form onSubmit={submItHandler}>
               <div className='text-input'>
                 <div className='label'>Username</div>
-                <div><input type='text' value={username}  onChange={(e) => setUsername(e.target.value)}/></div>
+                <div><input type='text' value={username}  onChange={(e) => setUsername(e.target.value)} required/></div>
               </div>
               <div className='text-input'>
                 <div className='label'>Password</div>
-                <div><input type='password' value={password}  onChange={(e) => setPassword(e.target.value)}/></div>
+                <div><input type='password' value={password}  onChange={(e) => setPassword(e.target.value)} required/></div>
               </div>
               <div className='submit-container'><input type='submit' value='Login' className='submit'/></div>
               <div className='forgot-password'>Forgot password? <span>Contact us</span></div>
             </form>
           </div>
+          {isAuthenticated === false && (
+            <div className='error-container'><div>invalid username or password</div></div>
+          )}         
         </div>
       </div>
     </>
