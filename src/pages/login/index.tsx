@@ -12,7 +12,11 @@ import logo from "../../assets/bitezy.png"
 
 import './login.css';
 
+
 const Login = () => {
+ 
+ const apiKey = import.meta.env.VITE_API_KEY;
+const apiURL = import.meta.env.VITE_API_URL;
 
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -31,8 +35,8 @@ const Login = () => {
 
   const submItHandler = async(e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const reseult = await fetch("https://api.bitezy.online/api/users/authenticate",
-      {method: "POST", headers: {'Content-Type': "application/json"}, body: JSON.stringify({username, password})}
+    const reseult = await fetch(`${apiURL}users/authenticate`,
+      {method: "POST", headers: {'Content-Type': "application/json", "x-api-key": apiKey}, body: JSON.stringify({username, password})}
     ).then(
        // eslint-disable-next-line
       (res) => {
