@@ -1,5 +1,5 @@
-import React, { type Ref } from "react";
-import { FontSize, Margin, Padding } from "./ui.conts";
+import React, { type JSX, type Ref } from "react";
+import { FontSize, Margin, Padding } from "./ui.const";
 import type { TSize } from "./ui.type";
 
 interface IInput {
@@ -12,7 +12,7 @@ interface IInput {
     type?: React.HTMLInputTypeAttribute
 }
 
-export default function Input ({ ref, type, style, size, rounded, placeholder, required }: IInput) {
+export default function Input ({ ref, type, style, size, rounded, placeholder, required }: IInput): JSX.Element {
     const inputSize: TSize = size ?? `md`;
 
     return (

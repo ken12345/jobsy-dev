@@ -1,5 +1,5 @@
-import React, { type Ref } from "react";
-import { FontSize, Margin, Padding } from "./ui.conts";
+import React, { type JSX, type Ref } from "react";
+import { FontSize, Margin, Padding } from "./ui.const";
 import type { TSize } from "./ui.type";
 
 interface IInput {
@@ -11,7 +11,7 @@ interface IInput {
     type?: `button` | `submit` | `reset`
 }
 
-export default function Button ({ ref, type, style, size, label, rounded }: IInput) {
+export default function Button ({ ref, type, style, size, label, rounded }: IInput): JSX.Element {
     const buttonSize: TSize = size ?? `md`;
 
     return (
