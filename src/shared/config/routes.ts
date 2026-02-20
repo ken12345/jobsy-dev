@@ -4,6 +4,7 @@ import Layout from "@pages/layout";
 import LoginPage from "@pages/login";
 import MenuPage from "@pages/menu";
 import PromoPage from "@pages/promo";
+import RegisterPage from "@pages/register";
 import ReportPage from "@pages/report";
 import StaffsPage from "@pages/staffs";
 import TableOrderPage from "@pages/order";
@@ -22,32 +23,38 @@ export const Routes: TRoute = {
         name: `Login`,
         path: `/`,
     },
+    regiter: {
+        excludeMenu: true,
+        layout: RegisterPage,
+        name: `Create Store Account`,
+        path: `/create-store-account`
+    },
     admin: {
         layout: Layout,
         name: `Admin`,
-        path: `/admin`,
+        path: `/`,
         routes: {
             dashboard: {
                 icon: dashboardIcon,
                 layout: DashboardPage,
                 index: true,
                 name: `Dashboard`,
-                path: `/admin`
+                path: `/dashboard`
             },
             reservations: {
                 icon: reservationsIcon,
                 name: `Reservations`,
-                path: `/admin/reservations`,
+                path: `/reservations`,
                 routes: {
                     tableOrder: {
                         layout: TableOrderPage,
                         name: `Table Order`,
-                        path: `/admin/order`
+                        path: `/tableorder`
                     },
                     tableStatus: {
                         layout: TableStatusPage,
                         name: `Table Status`,
-                        path: `/admin/status`
+                        path: `/tablestatus`
                     }
                 }
             },
@@ -55,32 +62,32 @@ export const Routes: TRoute = {
                 icon: reportIcon,
                 layout: ReportPage,
                 name: `Report`,
-                path: `/admin/report`
+                path: `/report`
             },
             manage: {
                 icon: manageIcon,
                 name: `Manage`,
-                path: `/admin/manage`,
+                path: `/manage`,
                 routes: {
                     staffs: {
                         layout: StaffsPage,
                         name: `Staffs`,
-                        path: `/admin/staffs`
+                        path: `/staffs`
                     },
                     menu: {
                         layout: MenuPage,
                         name: `Menu`,
-                        path: `/admin/menu`
+                        path: `/menu`
                     },
                     promo: {
                         layout: PromoPage,
                         name: `Event and Promotions`,
-                        path: `/admin/promo`
+                        path: `/promo`
                     },
                     floor: {
                         layout: FloorPage,
                         name: `Floor and Tables`,
-                        path: `/admin/floor`
+                        path: `/floor`
                     }
                 }
             }
