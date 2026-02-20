@@ -1,1 +1,1 @@
-export type TSize = `xs` | `sm` | `md` | `lg` | `xl` | `2xl` | `3xl` | `4xl`;
+export type TSize = `none` | `xs` | `sm` | `md` | `lg` | `xl` | `2xl` | `3xl` | `4xl`;

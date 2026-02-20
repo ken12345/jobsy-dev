@@ -13,7 +13,9 @@ export default function Layout (): JSX.Element {
             <Sidebar />
             <div className="w-full">
                 <Header />
-                <Outlet />
+                <div className="p-4">
+                    <Outlet />
+                </div>
             </div>
         </div>
     )

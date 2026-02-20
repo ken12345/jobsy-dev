@@ -1,3 +1,4 @@
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "@app/styles/global.css";
 import App from "@app/index.tsx";
 import store from "@app/providers/store";

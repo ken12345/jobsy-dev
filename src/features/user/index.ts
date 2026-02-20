@@ -2,4 +2,7 @@ export * from "./user.model";
 export type * from "./user.type";
 
 import LoginForm from "./user.login.ui";
-export default LoginForm;
+export { LoginForm };
+
+import RegisterForm from "./user.register.ui";
+export { RegisterForm };

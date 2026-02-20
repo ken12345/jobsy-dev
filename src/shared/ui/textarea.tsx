@@ -2,19 +2,19 @@ import React, { type JSX, type Ref } from "react";
 import { FontSize, Margin, Padding, Radius } from "./ui.const";
 import type { TSize } from "./ui.type";
 
-interface IInput {
+interface ITextArea {
     label?: string
     margin?: TSize
     placeholder?: string
-    ref?: Ref<HTMLInputElement>
+    ref?: Ref<HTMLTextAreaElement>
     required?: boolean
     rounded?: TSize | `full`
     size?: TSize
     style?: React.CSSProperties
-    type?: React.HTMLInputTypeAttribute
+    resizable?: boolean
 }
 
-export default function Input ({ ref, type, margin, style, size, rounded, label, placeholder, required }: IInput): JSX.Element {
+export default function TextArea ({ ref, margin, style, resizable, size, rounded, label, placeholder, required }: ITextArea): JSX.Element {
     const inputSize: TSize = size ?? `md`;
 
     return (
@@ -25,16 +25,16 @@ export default function Input ({ ref, type, margin, style, size, rounded, label,
                     { label } { required && <span className="text-red-500">*</span> }
                 </div>
             }
-            <input 
+            <textarea 
                 ref={ ref }
-                type={ type ?? `text` }
                 placeholder={ placeholder ?? `` }
                 required={ required ?? false }
                 className={
                     `transition w-full bg-white font-[500] text-black placeholder-[#9C9C9C] box-shadow shadow-[#9D9D9D40] focus:outline-1 focus:outline-[var(--secondary-color)]` 
                 } 
-                style={{ fontSize: FontSize[ inputSize ], padding: Padding[ inputSize ], borderRadius: Radius[ rounded ?? `none` ], ...style }}
+                style={{ fontSize: FontSize[ inputSize ], padding: Padding[ inputSize ], borderRadius: Radius[ rounded ?? `none` ], resize: resizable ? `vertical` : `none`, ...style }}
             />
         </div>
     )
+
 }

@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import LoginForm from "@features/user";
+import { LoginForm } from "@features/user";
 import splash from "@assets/images/splash.svg";
 
 export default function LoginPage (): JSX.Element {
