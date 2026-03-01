@@ -1,10 +1,11 @@
 import Router from "./providers/router";
+import { observer } from "mobx-react-lite";
 import type { JSX } from "react";
 
-export default function App (): JSX.Element {
+const App = observer((): JSX.Element => {
 	return (
-		<>
-			<Router />
-		</>
+		<Router />
 	)
-}
+});
+
+export default App;

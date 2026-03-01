@@ -1,30 +1,9 @@
 import http from "@shared/lib/http";
-import type { TLoginResponse, TUser, TUserState } from "./user.type";
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
+import type { TLoginResponse } from "./user.type";
 
 interface IUseUser {
     login: (username: string, password: string) => Promise<TLoginResponse | null>
 }
-
-const initUserState: TUserState = {
-    authenticated: false
-}
-
-const userSlice = createSlice({
-    name: `user`,
-    initialState: initUserState,
-    reducers: {
-        authenticateUser: (state, action: PayloadAction<TUser>) => {
-            state.authenticated = true;
-            state.details = action.payload;
-        },
-        reset: () => initUserState
-    }
-});
-
-export const { authenticateUser, reset } = userSlice.actions;
-export const userReducer = userSlice.reducer;
 
 export function useUser (): IUseUser {
 

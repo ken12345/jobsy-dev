@@ -1,16 +1,15 @@
 import { Button, Input } from "@shared/ui";
 import React, { useRef, type JSX } from "react";
-import logo from "@assets/images/logo.png";
+import store from "@app/providers/store";
 import { Routes } from "@shared/config/routes";
-import { useAppDispatch } from "@shared/lib/hooks";
 import { useNavigate } from "react-router-dom";
-import { authenticateUser, useUser } from "./user.model";
+import { useUser } from "./user.model";
+import logo from "@assets/images/logo.png";
 
 export default function LoginForm (): JSX.Element {
 
     const { login } = useUser();
     const navigate = useNavigate();
-    const dispatch = useAppDispatch();
     const usernameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -23,7 +22,7 @@ export default function LoginForm (): JSX.Element {
         if (username && password) {
             const response = await login(username, password);
             if(response) {
-                dispatch(authenticateUser(response));
+                store.authenticated(response);
                 navigate(Routes.admin.path);
             }
         }

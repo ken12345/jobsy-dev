@@ -1,13 +1,25 @@
-import { userReducer } from "@features/user";
-import { configureStore } from "@reduxjs/toolkit";
+import type { TUser } from "@features/user";
+import { makeAutoObservable } from "mobx";
 
-const store = configureStore({
-    reducer: {
-        user: userReducer
+interface IStore {
+    isAuthenticated: boolean
+    user?: TUser
+    authenticated: (user: TUser) => void
+}
+
+class Store implements IStore {
+    public isAuthenticated: boolean = false;
+    public user?: TUser;
+
+    constructor () {
+        makeAutoObservable(this);
     }
-});
 
+    public authenticated (user: TUser): void {
+        this.user = user;
+
+    }
+}
+
+const store = new Store();
 export default store;
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
